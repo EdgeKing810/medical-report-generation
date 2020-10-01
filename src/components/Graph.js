@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Bar, Doughnut, HorizontalBar, Line, Pie, Polar} from 'react-chartjs-2';
 import dataset from '../datasets/data_testing';
 
 export default function Graph() {
@@ -82,14 +82,47 @@ export default function Graph() {
         />
     );
 
+    const horizontalBar = (
+        <HorizontalBar
+            data={state}
+            options={{
+                title:{display: false},
+                legend:{display: false}
+            }}
+        />
+    );
+
+    const doughnut = (
+        <Doughnut
+            data={state}
+            options={{
+                title:{display: false},
+                legend:{display: false}
+            }}
+        />
+    );
+
+    const polar = (
+        <Polar
+            data={state}
+            options={{
+                title:{display: false},
+                legend:{display: false}
+            }}
+        />
+    );
+
     return(
         <div className="sm:w-2/3 w-5/6 flex flex-col">
             <div className="w-full font-serif sm:text-4xl text-xl text-gray-200 text-center mb-4 font-mono tracking-wide">CVD by Gender</div>
-            {type === 0 ? bar : type === 1 ? line : pie}
+            {type === 0 ? bar : type === 1 ? line : type === 2 ? pie : type === 3 ? horizontalBar : type === 4 ? doughnut : polar}
             <div className="sm:w-2/3 w-5/6 sm:h-12 h-8 mt-4 mx-auto flex justify-between rounded-lg">
                 <button className={`w-1/3 border-r-2 border-custom-100 bg-custom-400 rounded-l-lg mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 0 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 0} onClick={() => setType(0)}>Bar</button>
                 <button className={`w-1/3 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 1 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-50'}`} disabled={type === 1} onClick={() => setType(1)}>Line</button>
-                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 rounded-r-lg mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 2 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 2} onClick={() => setType(2)}>Pie</button>
+                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 2 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 2} onClick={() => setType(2)}>Pie</button>
+                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 3 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 3} onClick={() => setType(3)}>Horizontal</button>
+                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 4 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 4} onClick={() => setType(4)}>Dougnut</button>
+                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 rounded-r-lg mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 5 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 5} onClick={() => setType(5)}>Polar</button>
             </div>
         </div>
     );
