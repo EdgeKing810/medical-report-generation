@@ -116,13 +116,13 @@ export default function Graph() {
         <div className="sm:w-2/3 w-5/6 flex flex-col">
             <div className="w-full font-serif sm:text-4xl text-xl text-gray-200 text-center mb-4 font-mono tracking-wide">CVD by Gender</div>
             {type === 0 ? bar : type === 1 ? line : type === 2 ? pie : type === 3 ? horizontalBar : type === 4 ? doughnut : polar}
-            <div className="sm:w-2/3 w-5/6 sm:h-12 h-8 mt-4 mx-auto flex justify-between rounded-lg">
-                <button className={`w-1/3 border-r-2 border-custom-100 bg-custom-400 rounded-l-lg mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 0 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 0} onClick={() => setType(0)}>Bar</button>
-                <button className={`w-1/3 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 1 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-50'}`} disabled={type === 1} onClick={() => setType(1)}>Line</button>
-                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 2 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 2} onClick={() => setType(2)}>Pie</button>
-                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 3 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 3} onClick={() => setType(3)}>Horizontal</button>
-                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 4 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 4} onClick={() => setType(4)}>Dougnut</button>
-                <button className={`w-1/3 border-l-2 border-custom-100 bg-custom-400 rounded-r-lg mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 5 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 5} onClick={() => setType(5)}>Polar</button>
+            <div className="sm:w-2/3 w-full sm:h-12 h-8 mt-4 mx-auto flex flex-col lg:flex-row justify-between sm:rounded-lg">
+                <button className={`sm:w-1/3 w-full border-r-2 border-custom-100 bg-custom-400 sm:rounded-l-lg mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 0 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 0} onClick={() => setType(0)}>Bar</button>
+                <button className={`sm:w-1/3 w-full bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 1 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-50'}`} disabled={type === 1} onClick={() => setType(1)}>Line</button>
+                <button className={`sm:w-1/3 w-full sm:border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 2 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 2} onClick={() => setType(2)}>Pie</button>
+                <button className={`sm:w-1/3 w-full sm:border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 3 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 3} onClick={() => setType(3)}>Horizontal</button>
+                <button className={`sm:w-1/3 w-full sm:border-l-2 border-custom-100 bg-custom-400 mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 4 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 4} onClick={() => setType(4)}>Dougnut</button>
+                <button className={`sm:w-1/3 w-full sm:border-l-2 border-custom-100 bg-custom-400 sm:rounded-r-lg mono sm:text-xl text-md tracking-wider text-gray-300 ${type !== 5 ? 'hover:bg-red-600 focus:bg-red-600' : 'opacity-75'}`} disabled={type === 5} onClick={() => setType(5)}>Polar</button>
             </div>
         </div>
     );
